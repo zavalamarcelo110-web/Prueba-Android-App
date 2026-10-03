@@ -5,6 +5,8 @@
     <!--Permisos-->
     <uses-permission
         android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <!--Hardware-->
 
@@ -22,6 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppProximaPrueba">
+        <activity android:name=".Ayuda" android:exported="false" />
+        <activity android:name=".Config" android:exported="false" />
         <activity
             android:name=".Segunda_Vista"
             android:exported="false" />

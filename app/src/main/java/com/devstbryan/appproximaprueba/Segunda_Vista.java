@@ -1,12 +1,10 @@
 package com.devstbryan.appproximaprueba;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Segunda_Vista extends AppCompatActivity {
 
@@ -16,5 +14,20 @@ public class Segunda_Vista extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_segunda_vista);
 
+        // Recibe el nombre enviado desde el Panel (valida null)
+        String extra = getIntent().getStringExtra("nombre");
+        String nombre = extra == null ? "" : extra;
+        TextView tvSaludo = findViewById(R.id.tvSaludo);
+        tvSaludo.setText(R.string.cargando);
+
+        // Thread: simula una carga en segundo plano y luego actualiza la pantalla
+        new Thread(() -> {
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException ignored) { }
+            runOnUiThread(() -> tvSaludo.setText(getString(R.string.saludo, nombre)));
+        }).start();
+
+        findViewById(R.id.btnVolver).setOnClickListener(v -> finish());
     }
 }
