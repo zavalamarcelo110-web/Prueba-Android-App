@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">AppProximaPrueba</string>
+
+    <!-- Títulos -->
+    <string name="titulo">Intents y Funciones</string>
+    <string name="seccion_explicitos">🧭 Intents Explícitos</string>
+    <string name="seccion_implicitos">🌐 Intents Implícitos</string>
+    <string name="seccion_funciones">⚙️ Funciones</string>
+
+    <!-- Campos -->
+    <string name="hint_nombre">Escribe tu nombre</string>
+    <string name="hint_telefono">Número de teléfono</string>
+
+    <!-- Botones explícitos -->
+    <string name="btn_segunda">🪟 Segunda Ventana</string>
+    <string name="btn_ayuda">❓ Ayuda</string>
+    <string name="btn_config">🔧 Configuración</string>
+
+    <!-- Botones implícitos -->
+    <string name="btn_mapa">🗺️ Ver ubicación en el Mapa</string>
+    <string name="btn_web">🌍 Abrir Página Web</string>
+    <string name="btn_llamar">📞 Llamar</string>
+    <string name="btn_correo">✉️ Enviar Correo</string>
+    <string name="btn_wifi">📶 Ajustes Wi-Fi</string>
+
+    <!-- Funciones -->
+    <string name="btn_linterna">🔦 Encender / Apagar Linterna</string>
+    <string name="btn_ubicacion">📍 Obtener mi Ubicación</string>
+    <string name="ubicacion_vacia">Ubicación aún no encontrada</string>
+    <string name="btn_volver">🔙 Volver</string>
+
+    <!-- Segunda vista / Ayuda / Config -->
+    <string name="titulo_segunda">Segunda Ventana</string>
+    <string name="cargando">Cargando… ⏳</string>
+    <string name="saludo">¡Hola, %1$s! 👋</string>
+    <string name="titulo_ayuda">Ayuda</string>
+    <string name="texto_ayuda">1. Escribe tu nombre para abrir la Segunda Ventana.\n\n2. Obtén tu ubicación antes de ver el mapa.\n\n3. Ingresa un teléfono válido (9 dígitos) para llamar.\n\n4. La linterna necesita permiso de cámara.</string>
+    <string name="titulo_config">Configuración</string>
+    <string name="texto_config">Versión 1.0\nAndroid mínimo: 12 (API 31)\nDesarrollado en Java 💻</string>
+
+    <!-- Datos de los intents -->
+    <string name="url_web">https://www.santotomas.cl</string>
+    <string name="correo_destino">docente@santotomas.cl</string>
+    <string name="correo_asunto">Prueba App Android</string>
+    <string name="correo_cuerpo">Hola, te escribo desde mi app 📱</string>
+
+    <!-- Mensajes de validación -->
+    <string name="error_nombre">Ingresa tu nombre ✍️</string>
+    <string name="error_telefono">Ingresa un teléfono válido de 9 dígitos</string>
+    <string name="error_ubicacion">Primero obtén tu ubicación 📍</string>
+    <string name="error_camara">Error al acceder a la cámara</string>
+    <string name="error_app">No hay una app para realizar esta acción</string>
+    <string name="permiso_denegado">Permiso necesario, vuelve a presionar el botón</string>
+    <string name="buscando">Buscando ubicación…</string>
+    <string name="ubicacion_texto">Latitud: %1$.5f\nLongitud: %2$.5f</string>
 </resources>

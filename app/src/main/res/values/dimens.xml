@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="padding_pantalla">24dp</dimen>
+    <dimen name="margen">12dp</dimen>
+    <dimen name="titulo">32sp</dimen>
+    <dimen name="subtitulo">20sp</dimen>
+    <dimen name="texto">18sp</dimen>
+    <dimen name="radio">14dp</dimen>
+</resources>
