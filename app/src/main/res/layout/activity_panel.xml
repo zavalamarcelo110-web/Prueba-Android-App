@@ -1,83 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="24dp">
+    android:background="@color/fondo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Intents y Funciones"
-        android:textStyle="bold"
-        android:textSize="38sp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="15dp"/>
+    <LinearLayout style="@style/Pantalla" android:layout_height="wrap_content">
 
-    <!--Linterna-->
+        <TextView style="@style/Titulo" android:text="@string/titulo" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnLinterna"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Encender Linterna 🔦"
-        android:textStyle="bold"
-        android:textColor="#fffaff"
-        android:background="@color/black"/>
+        <!-- Intents Explícitos -->
+        <TextView style="@style/Subtitulo" android:text="@string/seccion_explicitos" />
+        <EditText android:id="@+id/etNombre" style="@style/Campo"
+            android:hint="@string/hint_nombre" android:inputType="textPersonName" />
+        <Button android:id="@+id/btnSegundaVentana" style="@style/Boton.Explicito" android:text="@string/btn_segunda" />
+        <Button android:id="@+id/btnAyuda" style="@style/Boton.Explicito" android:text="@string/btn_ayuda" />
+        <Button android:id="@+id/btnConfig" style="@style/Boton.Explicito" android:text="@string/btn_config" />
 
-    <!-- Intent Explicito  -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSegundaVentana"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🪟 Segunda Ventana"
-        android:textStyle="bold"
-        android:textColor="#fffaff"
-        android:background="@color/black"
-        android:layout_marginTop="15dp"/>
+        <!-- Funciones -->
+        <TextView style="@style/Subtitulo" android:text="@string/seccion_funciones" />
+        <Button android:id="@+id/btnLinterna" style="@style/Boton" android:text="@string/btn_linterna" />
+        <Button android:id="@+id/btnUbicacion" style="@style/Boton" android:text="@string/btn_ubicacion" />
+        <TextView android:id="@+id/tvUbicacion" style="@style/Texto"
+            android:textAlignment="center" android:text="@string/ubicacion_vacia" />
 
-    <!--Ubicacion-->
+        <!-- Intents Implícitos -->
+        <TextView style="@style/Subtitulo" android:text="@string/seccion_implicitos" />
+        <Button android:id="@+id/btnMap" style="@style/Boton.Implicito" android:text="@string/btn_mapa" />
+        <Button android:id="@+id/btnWeb" style="@style/Boton.Implicito" android:text="@string/btn_web" />
+        <EditText android:id="@+id/etTelefono" style="@style/Campo"
+            android:hint="@string/hint_telefono" android:inputType="phone" android:maxLength="9" />
+        <Button android:id="@+id/btnLlamar" style="@style/Boton.Implicito" android:text="@string/btn_llamar" />
+        <Button android:id="@+id/btnCorreo" style="@style/Boton.Implicito" android:text="@string/btn_correo" />
+        <Button android:id="@+id/btnWifi" style="@style/Boton.Implicito" android:text="@string/btn_wifi" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnUbicacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="📍Obtener mi Ubicación"
-        android:textStyle="bold"
-        android:textColor="#fffaff"
-        android:background="@color/black"
-        android:layout_marginTop="15dp"/>
-
-
-    <!--Resultado de la Geolocalización-->
-    <TextView
-        android:id="@+id/tvUbicacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ubicacion aun no encontrada"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textAlignment="center"
-        android:padding="15dp"
-        android:layout_marginTop="15dp"/>
-
-
-
-    <!-- Intent implicito-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🗺️ Ver ubicacion en el Mapa"
-        android:textStyle="bold"
-        android:textColor="#fffaff"
-        android:background="@color/black"/>
-
-
-
-
-
-  </LinearLayout>
+    </LinearLayout>
+</ScrollView>

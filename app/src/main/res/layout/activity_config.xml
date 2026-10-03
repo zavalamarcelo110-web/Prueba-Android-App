@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Pantalla">
 
-    <TextView style="@style/Titulo" android:text="@string/titulo_segunda" />
-    <TextView android:id="@+id/tvSaludo" style="@style/Texto" android:textAlignment="center" />
+    <TextView style="@style/Titulo" android:text="@string/titulo_config" />
+    <TextView style="@style/Texto" android:textAlignment="center" android:text="@string/texto_config" />
     <Button android:id="@+id/btnVolver" style="@style/Boton" android:text="@string/btn_volver" />
 
 </LinearLayout>
