@@ -84,6 +84,7 @@ public class Panel extends AppCompatActivity {
             try {
                 linternaEncendida = !linternaEncendida;
                 cameraManager.setTorchMode(idCamara, linternaEncendida);
+                mensaje(linternaEncendida ? R.string.linterna_on : R.string.linterna_off);
             } catch (CameraAccessException e) {
                 mensaje(R.string.error_camara);
             }

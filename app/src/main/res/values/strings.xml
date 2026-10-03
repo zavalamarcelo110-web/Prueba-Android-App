@@ -51,6 +51,8 @@
     <string name="error_camara">Error al acceder a la cámara</string>
     <string name="error_app">No hay una app para realizar esta acción</string>
     <string name="permiso_denegado">Permiso necesario, vuelve a presionar el botón</string>
+    <string name="linterna_on">Linterna encendida 🔦</string>
+    <string name="linterna_off">Linterna apagada 🌑</string>
     <string name="buscando">Buscando ubicación…</string>
     <string name="ubicacion_texto">Latitud: %1$.5f\nLongitud: %2$.5f</string>
 </resources>
