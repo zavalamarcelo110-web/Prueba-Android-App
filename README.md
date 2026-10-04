@@ -17,6 +17,8 @@
   <img alt="Gradle" src="https://img.shields.io/badge/AGP-9.0.1-3B82F6?style=for-the-badge&logo=gradle&logoColor=white">
 </p>
 
+> 🎬 **Vista previa en video:** [`docs/video/vista-previa.mp4`](docs/video/vista-previa.mp4) muestra un recorrido de 1:44 por todas las pantallas, colores, íconos y animaciones. Es una maqueta de referencia, no una grabación del teléfono.
+
 ---
 
 ## 📚 Índice
@@ -633,6 +635,8 @@ ViewCompat.setOnApplyWindowInsetsListener(vista, (v, insets) -> {
 ```
 
 También se considera el **teclado** (`WindowInsetsCompat.Type.ime()`).
+
+Los íconos de la barra de estado empiezan en blanco (sobre el encabezado oscuro) y, cuando el encabezado sale de la pantalla, pasan a oscuros para seguir viéndose sobre el fondo claro (`WindowInsetsControllerCompat.setAppearanceLightStatusBars()` dentro de un `OnScrollChangeListener`).
 
 **Splash Screen (Android 12+)**: se configura solo con el tema, sin una Activity extra:
 

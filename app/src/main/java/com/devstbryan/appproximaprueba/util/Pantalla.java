@@ -1,5 +1,7 @@
 package com.devstbryan.appproximaprueba.util;
 
+import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.view.View;
 
@@ -8,7 +10,10 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.SystemBarStyle;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.core.widget.NestedScrollView;
 
 /**
  * Ayudas para dibujar la app "de borde a borde" (edge-to-edge):
@@ -58,6 +63,25 @@ public final class Pantalla {
             int bottom = inferior ? paddingAbajo + Math.max(barras.bottom, teclado.bottom) : v.getPaddingBottom();
             v.setPadding(v.getPaddingLeft(), top, v.getPaddingRight(), bottom);
             return insets;
+        });
+    }
+
+    /**
+     * Los íconos de la barra de estado empiezan en blanco (sobre el encabezado oscuro).
+     * Cuando el encabezado sale de la pantalla y el contenido claro queda detrás de la barra,
+     * se cambian a oscuros para que sigan leyéndose. En modo oscuro siempre quedan blancos.
+     */
+    public static void iconosSegunDesplazamiento(Activity activity, NestedScrollView scroll, View encabezado) {
+        WindowInsetsControllerCompat controlador =
+                WindowCompat.getInsetsController(activity.getWindow(), activity.getWindow().getDecorView());
+        int modo = activity.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        boolean modoOscuro = modo == Configuration.UI_MODE_NIGHT_YES;
+
+        scroll.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, x, y, viejoX, viejoY) -> {
+            WindowInsetsCompat insets = ViewCompat.getRootWindowInsets(v);
+            int barra = insets == null ? 0 : insets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
+            boolean sobreContenido = y > encabezado.getHeight() - barra;
+            controlador.setAppearanceLightStatusBars(!modoOscuro && sobreContenido);
         });
     }
 }

@@ -3,6 +3,7 @@
     CONFIGURACIÓN (destino de un intent explícito): tema, permisos e información de la app.
 -->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,6 +19,7 @@
 
         <!-- ================= ENCABEZADO ================= -->
         <FrameLayout
+            android:id="@+id/header"
             style="@style/Encabezado"
             android:background="@drawable/bg_header_funcion">
 

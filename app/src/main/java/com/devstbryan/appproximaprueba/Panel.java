@@ -118,6 +118,7 @@ public class Panel extends AppCompatActivity {
         Pantalla.activarEdgeToEdge(this, false);
         setContentView(R.layout.activity_panel);
         Pantalla.aplicarInsets(findViewById(R.id.headerContenido), findViewById(R.id.contenido));
+        Pantalla.iconosSegunDesplazamiento(this, findViewById(R.id.scroll), findViewById(R.id.header));
 
         enlazarVistas();
         if (savedInstanceState != null) restaurarEstado(savedInstanceState);

@@ -16,6 +16,7 @@ public class Ayuda extends AppCompatActivity {
         Pantalla.activarEdgeToEdge(this, false);
         setContentView(R.layout.activity_ayuda);
         Pantalla.aplicarInsets(findViewById(R.id.headerContenido), findViewById(R.id.contenido));
+        Pantalla.iconosSegunDesplazamiento(this, findViewById(R.id.scroll), findViewById(R.id.header));
 
         Animaciones.flotar(findViewById(R.id.ivIconoHeader));
 

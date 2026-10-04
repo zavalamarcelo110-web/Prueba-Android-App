@@ -5,6 +5,7 @@
     Código de colores: violeta = explícitos · naranja/rosa = funciones · cian/verde = implícitos.
 -->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
