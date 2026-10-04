@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4F46E5"/>
+      <stop offset="0.5" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+    <radialGradient id="rosa"><stop offset="0" stop-color="#EC4899" stop-opacity=".7"/><stop offset="1" stop-color="#EC4899" stop-opacity="0"/></radialGradient>
+    <radialGradient id="cian"><stop offset="0" stop-color="#06B6D4" stop-opacity=".6"/><stop offset="1" stop-color="#06B6D4" stop-opacity="0"/></radialGradient>
+    <radialGradient id="amarillo"><stop offset="0" stop-color="#FACC15" stop-opacity=".45"/><stop offset="1" stop-color="#FACC15" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="360" rx="32" fill="url(#fondo)"/>
+  <circle cx="160" cy="60" r="260" fill="url(#rosa)"/>
+  <circle cx="1080" cy="120" r="240" fill="url(#cian)"/>
+  <circle cx="700" cy="380" r="220" fill="url(#amarillo)"/>
+
+  <!-- Logo: núcleo + órbita + satélites -->
+  <g transform="translate(180 180) scale(2.6) translate(-54 -54)">
+    <g transform="rotate(-30 54 54)">
+      <ellipse cx="54" cy="54" rx="26" ry="11" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+      <circle cx="80" cy="54" r="4.5" fill="#FACC15"/>
+      <circle cx="28" cy="54" r="3.5" fill="#06B6D4"/>
+    </g>
+    <circle cx="54" cy="54" r="11" fill="#fff"/>
+    <path d="M50,48.5l9,5.5l-9,5.5l1.6,-5.5z" fill="#7C3AED"/>
+  </g>
+
+  <g font-family="Poppins, 'Segoe UI', Roboto, Arial, sans-serif" fill="#fff">
+    <text x="340" y="150" font-size="60" font-weight="700">AppProximaPrueba</text>
+    <text x="342" y="200" font-size="26" fill-opacity=".9">Intents explícitos e implícitos · Linterna · Ubicación · Thread</text>
+    <g font-size="18" font-weight="600">
+      <rect x="342" y="236" width="150" height="40" rx="20" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-opacity=".35"/>
+      <text x="367" y="262">☕ Java 11</text>
+      <rect x="506" y="236" width="186" height="40" rx="20" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-opacity=".35"/>
+      <text x="530" y="262">🎨 Material 3</text>
+      <rect x="706" y="236" width="196" height="40" rx="20" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-opacity=".35"/>
+      <text x="730" y="262">🤖 Android 12+</text>
+      <rect x="916" y="236" width="196" height="40" rx="20" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-opacity=".35"/>
+      <text x="940" y="262">🌙 Modo oscuro</text>
+    </g>
+  </g>
+</svg>
