@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo oscuro: solo se redefinen los colores semánticos, la marca se mantiene -->
+<resources>
+    <color name="fondo">#FF0B0A1F</color>
+    <color name="superficie">#FF17152E</color>
+    <color name="superficie_variante">#FF221F42</color>
+    <color name="borde">#FF2E2A57</color>
+    <color name="texto">#FFF5F3FF</color>
+    <color name="texto_secundario">#FFA9A6CF</color>
+    <color name="chip_codigo">#FF2A2552</color>
+    <color name="chip_codigo_texto">#FFC4B5FD</color>
+</resources>

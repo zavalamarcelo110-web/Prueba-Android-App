@@ -1,58 +1,145 @@
 <resources>
     <string name="app_name">AppProximaPrueba</string>
 
-    <!-- Títulos -->
+    <!-- ===== Panel: encabezado ===== -->
+    <string name="chip_header">Java · Android 12+</string>
     <string name="titulo">Intents y Funciones</string>
-    <string name="seccion_explicitos">🧭 Intents Explícitos</string>
-    <string name="seccion_implicitos">🌐 Intents Implícitos</string>
-    <string name="seccion_funciones">⚙️ Funciones</string>
+    <string name="subtitulo_panel">Explora cómo una app se comunica con sus pantallas, con otras apps y con el hardware.</string>
+    <string name="desc_ilustracion">Ilustración de un teléfono enviando mensajes a otras apps</string>
 
-    <!-- Campos -->
-    <string name="hint_nombre">Escribe tu nombre</string>
+    <!-- Contadores -->
+    <string name="stat_explicitos">Explícitos</string>
+    <string name="stat_implicitos">Implícitos</string>
+    <string name="stat_funciones">Funciones</string>
+
+    <!-- ===== Secciones ===== -->
+    <string name="seccion_explicitos">Intents explícitos</string>
+    <string name="seccion_explicitos_desc">Abren pantallas de esta misma app</string>
+    <string name="seccion_funciones">Funciones</string>
+    <string name="seccion_funciones_desc">Usan el hardware del teléfono</string>
+    <string name="seccion_implicitos">Intents implícitos</string>
+    <string name="seccion_implicitos_desc">Le piden a otra app que haga la acción</string>
+
+    <!-- ===== Campos ===== -->
+    <string name="hint_nombre">Tu nombre</string>
+    <string name="ayuda_nombre">Se envía a la Segunda Ventana con putExtra()</string>
     <string name="hint_telefono">Número de teléfono</string>
+    <string name="ayuda_telefono">9 dígitos, por ejemplo 912345678</string>
 
-    <!-- Botones explícitos -->
-    <string name="btn_segunda">🪟 Segunda Ventana</string>
-    <string name="btn_ayuda">❓ Ayuda</string>
-    <string name="btn_config">🔧 Configuración</string>
+    <!-- ===== Intents explícitos ===== -->
+    <string name="btn_segunda">Abrir Segunda Ventana</string>
+    <string name="btn_ayuda">Ayuda</string>
+    <string name="desc_ayuda">Guía rápida de uso</string>
+    <string name="btn_config">Configuración</string>
+    <string name="desc_config">Tema, permisos e info</string>
+    <string name="codigo_ayuda">Ayuda.class</string>
+    <string name="codigo_config">Config.class</string>
 
-    <!-- Botones implícitos -->
-    <string name="btn_mapa">🗺️ Ver ubicación en el Mapa</string>
-    <string name="btn_web">🌍 Abrir Página Web</string>
-    <string name="btn_llamar">📞 Llamar</string>
-    <string name="btn_correo">✉️ Enviar Correo</string>
-    <string name="btn_wifi">📶 Ajustes Wi-Fi</string>
-
-    <!-- Funciones -->
-    <string name="btn_linterna">🔦 Encender / Apagar Linterna</string>
-    <string name="btn_ubicacion">📍 Obtener mi Ubicación</string>
+    <!-- ===== Funciones ===== -->
+    <string name="btn_linterna">Linterna</string>
+    <string name="linterna_estado_off">Apagada · toca para encender</string>
+    <string name="linterna_estado_on">Encendida · toca para apagar</string>
+    <string name="codigo_linterna">CameraManager</string>
+    <string name="btn_ubicacion">Ubicación</string>
+    <string name="ubicacion_estado">Toca para buscar tu posición</string>
+    <string name="codigo_ubicacion">LocationManager</string>
     <string name="ubicacion_vacia">Ubicación aún no encontrada</string>
-    <string name="btn_volver">🔙 Volver</string>
+    <string name="buscando">Buscando ubicación…</string>
+    <string name="ubicacion_texto">Latitud: %1$.5f\nLongitud: %2$.5f</string>
+    <string name="ubicacion_lista">¡Ubicación encontrada! 📍</string>
 
-    <!-- Segunda vista / Ayuda / Config -->
+    <!-- ===== Intents implícitos ===== -->
+    <string name="btn_mapa">Mapa</string>
+    <string name="desc_mapa">Ver tu ubicación</string>
+    <string name="codigo_mapa">VIEW · geo:</string>
+    <string name="btn_web">Web</string>
+    <string name="desc_web">Abrir el sitio</string>
+    <string name="codigo_web">VIEW · https:</string>
+    <string name="btn_correo">Correo</string>
+    <string name="desc_correo">Asunto y cuerpo listos</string>
+    <string name="codigo_correo">SENDTO · mailto:</string>
+    <string name="btn_wifi">Wi-Fi</string>
+    <string name="desc_wifi">Ajustes de red</string>
+    <string name="codigo_wifi">WIFI_SETTINGS</string>
+    <string name="btn_llamar">Llamar</string>
+    <string name="codigo_llamar">Intent.ACTION_DIAL · tel:</string>
+
+    <string name="pie">Hecho con 💜 en Java</string>
+
+    <!-- ===== Navegación ===== -->
+    <string name="btn_volver">Volver</string>
+
+    <!-- ===== Segunda vista ===== -->
     <string name="titulo_segunda">Segunda Ventana</string>
     <string name="cargando">Cargando… ⏳</string>
+    <string name="cargando_detalle">Un Thread trabaja en segundo plano</string>
     <string name="saludo">¡Hola, %1$s! 👋</string>
-    <string name="titulo_ayuda">Ayuda</string>
-    <string name="texto_ayuda">1. Escribe tu nombre para abrir la Segunda Ventana.\n\n2. Obtén tu ubicación antes de ver el mapa.\n\n3. Ingresa un teléfono válido (9 dígitos) para llamar.\n\n4. La linterna necesita permiso de cámara.</string>
-    <string name="titulo_config">Configuración</string>
-    <string name="texto_config">Versión 1.0\nAndroid mínimo: 12 (API 31)\nDesarrollado en Java 💻</string>
+    <string name="saludo_detalle">Tu nombre viajó desde el Panel dentro del Intent.</string>
+    <string name="codigo_extra">getStringExtra(\"nombre\") → \"%1$s\"</string>
+    <string name="desc_avatar">Inicial de tu nombre</string>
 
-    <!-- Datos de los intents -->
-    <string name="url_web">https://www.santotomas.cl</string>
-    <string name="correo_destino">docente@santotomas.cl</string>
+    <!-- ===== Ayuda ===== -->
+    <string name="titulo_ayuda">Ayuda</string>
+    <string name="subtitulo_ayuda">Todo lo que necesitas para probar la app</string>
+    <string name="paso_1_titulo">Segunda Ventana</string>
+    <string name="paso_1">Escribe tu nombre y presiona «Abrir Segunda Ventana». Verás una carga y luego tu saludo.</string>
+    <string name="paso_2_titulo">Mapa</string>
+    <string name="paso_2">Primero toca «Ubicación» para obtener tus coordenadas y después abre el «Mapa».</string>
+    <string name="paso_3_titulo">Llamar</string>
+    <string name="paso_3">Ingresa un teléfono válido de 9 dígitos para abrir el marcador.</string>
+    <string name="paso_4_titulo">Linterna</string>
+    <string name="paso_4">La linterna pide el permiso de cámara la primera vez que la usas.</string>
+    <string name="leyenda_titulo">Código de colores</string>
+    <string name="leyenda_explicito">Violeta: intents explícitos</string>
+    <string name="leyenda_implicito">Cian / verde: intents implícitos</string>
+    <string name="leyenda_funcion">Naranja / rosa: funciones</string>
+
+    <!-- ===== Configuración ===== -->
+    <string name="titulo_config">Configuración</string>
+    <string name="subtitulo_config">Personaliza la app y revisa sus datos</string>
+    <string name="config_apariencia">Apariencia</string>
+    <string name="tema_sistema">Sistema</string>
+    <string name="tema_claro">Claro</string>
+    <string name="tema_oscuro">Oscuro</string>
+    <string name="config_permisos">Permisos</string>
+    <string name="permiso_camara">Cámara (linterna)</string>
+    <string name="permiso_ubicacion">Ubicación</string>
+    <string name="permiso_concedido">Concedido</string>
+    <string name="permiso_pendiente">Pendiente</string>
+    <string name="btn_ajustes_app">Abrir ajustes de la app</string>
+    <string name="config_info">Información</string>
+    <string name="info_version">Versión</string>
+    <string name="info_api_min">Android mínimo</string>
+    <string name="info_api_min_valor">12 (API 31)</string>
+    <string name="info_lenguaje">Lenguaje</string>
+    <string name="info_lenguaje_valor">Java 11</string>
+    <string name="info_paquete">Paquete</string>
+
+    <!-- ===== Datos de los intents ===== -->
+    <string name="url_web" translatable="false">https://www.santotomas.cl</string>
+    <string name="correo_destino" translatable="false">docente@santotomas.cl</string>
     <string name="correo_asunto">Prueba App Android</string>
     <string name="correo_cuerpo">Hola, te escribo desde mi app 📱</string>
 
-    <!-- Mensajes de validación -->
+    <!-- ===== Mensajes de validación y estado ===== -->
     <string name="error_nombre">Ingresa tu nombre ✍️</string>
     <string name="error_telefono">Ingresa un teléfono válido de 9 dígitos</string>
     <string name="error_ubicacion">Primero obtén tu ubicación 📍</string>
-    <string name="error_camara">Error al acceder a la cámara</string>
+    <string name="error_camara">Este dispositivo no tiene flash disponible</string>
+    <string name="error_camara_uso">No se pudo acceder a la cámara</string>
     <string name="error_app">No hay una app para realizar esta acción</string>
-    <string name="permiso_denegado">Permiso necesario, vuelve a presionar el botón</string>
+    <string name="error_gps">La ubicación del teléfono está desactivada</string>
     <string name="linterna_on">Linterna encendida 🔦</string>
     <string name="linterna_off">Linterna apagada 🌑</string>
-    <string name="buscando">Buscando ubicación…</string>
-    <string name="ubicacion_texto">Latitud: %1$.5f\nLongitud: %2$.5f</string>
+
+    <!-- ===== Permisos ===== -->
+    <string name="permiso_denegado">Permiso necesario para esta función</string>
+    <string name="permiso_titulo_camara">Permiso de cámara</string>
+    <string name="permiso_motivo_camara">La linterna usa el flash de la cámara. Necesitamos tu permiso para encenderla.</string>
+    <string name="permiso_titulo_ubicacion">Permiso de ubicación</string>
+    <string name="permiso_motivo_ubicacion">Usamos tu ubicación solo para mostrar tus coordenadas y abrirlas en el mapa.</string>
+    <string name="accion_continuar">Continuar</string>
+    <string name="accion_cancelar">Ahora no</string>
+    <string name="accion_ajustes">Ajustes</string>
+    <string name="accion_activar">Activar</string>
 </resources>

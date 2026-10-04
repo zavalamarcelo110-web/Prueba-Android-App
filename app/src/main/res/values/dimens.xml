@@ -1,8 +1,27 @@
 <resources>
-    <dimen name="padding_pantalla">24dp</dimen>
+    <!-- Espaciado (escala de 4dp) -->
+    <dimen name="padding_pantalla">20dp</dimen>
     <dimen name="margen">12dp</dimen>
-    <dimen name="titulo">32sp</dimen>
+    <dimen name="margen_chico">8dp</dimen>
+    <dimen name="margen_grande">24dp</dimen>
+
+    <!-- Tipografía -->
+    <dimen name="titulo">30sp</dimen>
     <dimen name="subtitulo">20sp</dimen>
-    <dimen name="texto">18sp</dimen>
-    <dimen name="radio">14dp</dimen>
+    <dimen name="texto">16sp</dimen>
+    <dimen name="texto_chico">13sp</dimen>
+    <dimen name="texto_codigo">11sp</dimen>
+
+    <!-- Formas -->
+    <dimen name="radio">20dp</dimen>
+    <dimen name="radio_chico">12dp</dimen>
+    <dimen name="radio_header">36dp</dimen>
+
+    <!-- Componentes -->
+    <dimen name="alto_boton">56dp</dimen>
+    <dimen name="icono_tile">48dp</dimen>
+    <dimen name="icono_seccion">40dp</dimen>
+    <dimen name="avatar">120dp</dimen>
+    <dimen name="desplazamiento_entrada">32dp</dimen>
+    <dimen name="flotar">10dp</dimen>
 </resources>

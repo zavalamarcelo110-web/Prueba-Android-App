@@ -14,8 +14,8 @@ android {
         applicationId = "com.devstbryan.appproximaprueba"
         minSdk = 31
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,6 +28,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    buildFeatures {
+        // Genera la clase BuildConfig (se usa para mostrar la versión en Configuración)
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

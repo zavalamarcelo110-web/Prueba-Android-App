@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores que va alternando el indicador de carga de la Segunda Ventana -->
+    <integer-array name="colores_carga">
+        <item>@color/rosa</item>
+        <item>@color/amarillo</item>
+        <item>@color/cian</item>
+        <item>@color/violeta_claro</item>
+    </integer-array>
+</resources>

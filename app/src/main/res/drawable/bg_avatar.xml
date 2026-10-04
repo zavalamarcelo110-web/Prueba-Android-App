@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Avatar circular con degradado y borde de vidrio -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:angle="315"
+        android:centerColor="@color/rosa"
+        android:endColor="@color/naranja"
+        android:startColor="@color/violeta" />
+    <stroke
+        android:width="4dp"
+        android:color="@color/vidrio_borde" />
+</shape>

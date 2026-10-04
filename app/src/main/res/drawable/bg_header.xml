@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Encabezado principal: degradado índigo → violeta → rosa con esquinas inferiores redondeadas -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:centerColor="@color/violeta"
+        android:endColor="@color/rosa"
+        android:startColor="@color/indigo" />
+    <corners
+        android:bottomLeftRadius="@dimen/radio_header"
+        android:bottomRightRadius="@dimen/radio_header" />
+</shape>

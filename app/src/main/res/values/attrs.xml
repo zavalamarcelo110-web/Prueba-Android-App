@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos personalizados de la vista AuroraView (se usan desde el XML con app:) -->
+    <declare-styleable name="AuroraView">
+        <!-- Radio de las esquinas inferiores donde se recorta el dibujo -->
+        <attr name="radioInferior" format="dimension" />
+        <!-- Opacidad de las manchas de luz (0 a 1) -->
+        <attr name="intensidad" format="float" />
+    </declare-styleable>
+</resources>

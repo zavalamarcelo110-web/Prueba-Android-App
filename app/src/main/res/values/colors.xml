@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primario">#FF1E3A5F</color>
-    <color name="explicito">#FF2E86DE</color>
-    <color name="implicito">#FF10AC84</color>
-    <color name="funcion">#FF222F3E</color>
-    <color name="fondo">#FFF4F6FA</color>
-    <color name="texto">#FF1B1B1B</color>
-    <color name="black">#FF000000</color>
+    <!-- ===== Paleta de marca "Aurora Neón" (igual en modo claro y oscuro) ===== -->
+    <color name="violeta">#FF7C3AED</color>
+    <color name="violeta_claro">#FFA78BFA</color>
+    <color name="indigo">#FF4F46E5</color>
+    <color name="azul">#FF3B82F6</color>
+    <color name="cian">#FF06B6D4</color>
+    <color name="esmeralda">#FF10B981</color>
+    <color name="amarillo">#FFFACC15</color>
+    <color name="naranja">#FFF97316</color>
+    <color name="rosa">#FFEC4899</color>
+    <color name="medianoche">#FF0B0A1F</color>
+
+    <!-- ===== Color por tipo de acción (código de colores de la app) ===== -->
+    <color name="explicito">@color/violeta</color>
+    <color name="explicito_fin">@color/azul</color>
+    <color name="implicito">@color/cian</color>
+    <color name="implicito_fin">@color/esmeralda</color>
+    <color name="funcion">@color/naranja</color>
+    <color name="funcion_fin">@color/rosa</color>
+
+    <!-- ===== Colores semánticos (cambian en values-night/colors.xml) ===== -->
+    <color name="fondo">#FFF6F4FF</color>
+    <color name="superficie">#FFFFFFFF</color>
+    <color name="superficie_variante">#FFEFEBFF</color>
+    <color name="borde">#FFE4DEFF</color>
+    <color name="texto">#FF1E1B4B</color>
+    <color name="texto_secundario">#FF6B6890</color>
+    <color name="chip_codigo">#FFF1EEFF</color>
+    <color name="chip_codigo_texto">#FF6D28D9</color>
+
+    <!-- Translúcidos para efecto "vidrio" sobre degradados -->
+    <color name="vidrio">#33FFFFFF</color>
+    <color name="vidrio_borde">#55FFFFFF</color>
+    <color name="blanco_suave">#D9FFFFFF</color>
+
     <color name="white">#FFFFFFFF</color>
 </resources>

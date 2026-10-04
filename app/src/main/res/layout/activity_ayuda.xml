@@ -1,8 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Pantalla">
+<!--
+    AYUDA (destino de un intent explícito): pasos para probar la app y código de colores.
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:fillViewport="true"
+    tools:context=".Ayuda">
 
-    <TextView style="@style/Titulo" android:text="@string/titulo_ayuda" />
-    <TextView style="@style/Texto" android:text="@string/texto_ayuda" />
-    <Button android:id="@+id/btnVolver" style="@style/Boton" android:text="@string/btn_volver" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <!-- ================= ENCABEZADO ================= -->
+        <FrameLayout
+            style="@style/Encabezado"
+            android:background="@drawable/bg_header_implicito">
+
+            <com.devstbryan.appproximaprueba.widget.AuroraView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:radioInferior="@dimen/radio_header" />
+
+            <LinearLayout
+                android:id="@+id/headerContenido"
+                style="@style/Encabezado.Contenido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/btnAtras"
+                    style="@style/BotonVolver" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margen_grande"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Texto.Titulo.Blanco"
+                            android:accessibilityHeading="true"
+                            android:text="@string/titulo_ayuda" />
+
+                        <TextView
+                            style="@style/Texto.Blanco"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/subtitulo_ayuda"
+                            android:textSize="@dimen/texto_chico" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivIconoHeader"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginStart="@dimen/margen"
+                        android:background="@drawable/bg_chip_vidrio"
+                        android:importantForAccessibility="no"
+                        android:padding="18dp"
+                        android:src="@drawable/ic_ayuda"
+                        app:tint="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- ================= CONTENIDO ================= -->
+        <LinearLayout
+            android:id="@+id/contenido"
+            style="@style/Contenido"
+            android:paddingTop="@dimen/margen_grande">
+
+            <!-- Paso 1 -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circulo_explicito"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Tile.Titulo"
+                            android:layout_marginTop="0dp"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/paso_1_titulo"
+                            app:drawableEndCompat="@drawable/ic_cohete"
+                            app:drawableTint="@color/violeta_claro" />
+
+                        <TextView
+                            style="@style/Texto.Secundario"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/paso_1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <!-- Paso 2 -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_marginTop="@dimen/margen">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circulo_implicito"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Tile.Titulo"
+                            android:layout_marginTop="0dp"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/paso_2_titulo"
+                            app:drawableEndCompat="@drawable/ic_mapa"
+                            app:drawableTint="@color/violeta_claro" />
+
+                        <TextView
+                            style="@style/Texto.Secundario"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/paso_2" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <!-- Paso 3 -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_marginTop="@dimen/margen">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circulo_implicito"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Tile.Titulo"
+                            android:layout_marginTop="0dp"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/paso_3_titulo"
+                            app:drawableEndCompat="@drawable/ic_telefono"
+                            app:drawableTint="@color/violeta_claro" />
+
+                        <TextView
+                            style="@style/Texto.Secundario"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/paso_3" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <!-- Paso 4 -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_marginTop="@dimen/margen">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circulo_funcion"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Tile.Titulo"
+                            android:layout_marginTop="0dp"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/paso_4_titulo"
+                            app:drawableEndCompat="@drawable/ic_linterna_on"
+                            app:drawableTint="@color/violeta_claro" />
+
+                        <TextView
+                            style="@style/Texto.Secundario"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/paso_4" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Leyenda del código de colores -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_marginTop="@dimen/margen">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Texto.Subtitulo"
+                        android:accessibilityHeading="true"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/leyenda_titulo"
+                        android:textSize="18sp"
+                        app:drawableStartCompat="@drawable/ic_tip"
+                        app:drawableTint="@color/amarillo" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:background="@drawable/bg_circulo_explicito" />
+
+                        <TextView
+                            style="@style/Texto"
+                            android:layout_marginStart="@dimen/margen"
+                            android:text="@string/leyenda_explicito"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:background="@drawable/bg_circulo_implicito" />
+
+                        <TextView
+                            style="@style/Texto"
+                            android:layout_marginStart="@dimen/margen"
+                            android:text="@string/leyenda_implicito"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:background="@drawable/bg_circulo_funcion" />
+
+                        <TextView
+                            style="@style/Texto"
+                            android:layout_marginStart="@dimen/margen"
+                            android:text="@string/leyenda_funcion"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/btnVolver"
+                style="@style/Boton.Explicito"
+                android:layout_marginTop="@dimen/margen_grande"
+                android:text="@string/btn_volver"
+                app:icon="@drawable/ic_volver" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

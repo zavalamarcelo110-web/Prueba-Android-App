@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Etiqueta tipo "código" que muestra qué intent o API usa cada botón -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/chip_codigo" />
+    <corners android:radius="8dp" />
+</shape>

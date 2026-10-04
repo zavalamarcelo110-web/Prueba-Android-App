@@ -1,37 +1,655 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    PANEL PRINCIPAL
+    Estructura: NestedScrollView → encabezado con degradado animado + contenido en tarjetas.
+    Código de colores: violeta = explícitos · naranja/rosa = funciones · cian/verde = implícitos.
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    android:background="@color/fondo"
+    android:fillViewport="true"
+    tools:context=".Panel">
 
-    <LinearLayout style="@style/Pantalla" android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView style="@style/Titulo" android:text="@string/titulo" />
+        <!-- ================= ENCABEZADO ================= -->
+        <FrameLayout
+            android:id="@+id/header"
+            style="@style/Encabezado"
+            android:background="@drawable/bg_header">
 
-        <!-- Intents Explícitos -->
-        <TextView style="@style/Subtitulo" android:text="@string/seccion_explicitos" />
-        <EditText android:id="@+id/etNombre" style="@style/Campo"
-            android:hint="@string/hint_nombre" android:inputType="textPersonName" />
-        <Button android:id="@+id/btnSegundaVentana" style="@style/Boton.Explicito" android:text="@string/btn_segunda" />
-        <Button android:id="@+id/btnAyuda" style="@style/Boton.Explicito" android:text="@string/btn_ayuda" />
-        <Button android:id="@+id/btnConfig" style="@style/Boton.Explicito" android:text="@string/btn_config" />
+            <!-- Vista personalizada: manchas de luz que se mueven lentamente -->
+            <com.devstbryan.appproximaprueba.widget.AuroraView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:radioInferior="@dimen/radio_header" />
 
-        <!-- Funciones -->
-        <TextView style="@style/Subtitulo" android:text="@string/seccion_funciones" />
-        <Button android:id="@+id/btnLinterna" style="@style/Boton" android:text="@string/btn_linterna" />
-        <Button android:id="@+id/btnUbicacion" style="@style/Boton" android:text="@string/btn_ubicacion" />
-        <TextView android:id="@+id/tvUbicacion" style="@style/Texto"
-            android:textAlignment="center" android:text="@string/ubicacion_vacia" />
+            <ImageView
+                android:id="@+id/ivHero"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="52dp"
+                android:contentDescription="@string/desc_ilustracion"
+                android:src="@drawable/ilustracion_hero" />
 
-        <!-- Intents Implícitos -->
-        <TextView style="@style/Subtitulo" android:text="@string/seccion_implicitos" />
-        <Button android:id="@+id/btnMap" style="@style/Boton.Implicito" android:text="@string/btn_mapa" />
-        <Button android:id="@+id/btnWeb" style="@style/Boton.Implicito" android:text="@string/btn_web" />
-        <EditText android:id="@+id/etTelefono" style="@style/Campo"
-            android:hint="@string/hint_telefono" android:inputType="phone" android:maxLength="9" />
-        <Button android:id="@+id/btnLlamar" style="@style/Boton.Implicito" android:text="@string/btn_llamar" />
-        <Button android:id="@+id/btnCorreo" style="@style/Boton.Implicito" android:text="@string/btn_correo" />
-        <Button android:id="@+id/btnWifi" style="@style/Boton.Implicito" android:text="@string/btn_wifi" />
+            <LinearLayout
+                android:id="@+id/headerContenido"
+                style="@style/Encabezado.Contenido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="76dp">
 
+                <TextView
+                    style="@style/Texto.ChipVidrio"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_header" />
+
+                <TextView
+                    style="@style/Texto.Titulo.Blanco"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="120dp"
+                    android:accessibilityHeading="true"
+                    android:text="@string/titulo" />
+
+                <TextView
+                    style="@style/Texto.Blanco"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="130dp"
+                    android:text="@string/subtitulo_panel"
+                    android:textSize="@dimen/texto_chico" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- ================= CONTENIDO ================= -->
+        <LinearLayout
+            android:id="@+id/contenido"
+            style="@style/Contenido">
+
+            <!-- Tarjeta de contadores que "flota" sobre el encabezado -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_marginTop="-48dp"
+                app:cardElevation="10dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvStatExplicitos"
+                        style="@style/Texto"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="0"
+                        android:textColor="@color/explicito"
+                        android:textSize="28sp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        style="@style/Texto.Secundario"
+                        android:layout_width="wrap_content"
+                        android:text="@string/stat_explicitos" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvStatImplicitos"
+                        style="@style/Texto"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="0"
+                        android:textColor="@color/implicito"
+                        android:textSize="28sp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        style="@style/Texto.Secundario"
+                        android:layout_width="wrap_content"
+                        android:text="@string/stat_implicitos" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvStatFunciones"
+                        style="@style/Texto"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="0"
+                        android:textColor="@color/funcion"
+                        android:textSize="28sp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        style="@style/Texto.Secundario"
+                        android:layout_width="wrap_content"
+                        android:text="@string/stat_funciones" />
+                </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== INTENTS EXPLÍCITOS ========== -->
+        <LinearLayout style="@style/Seccion">
+
+            <ImageView
+                style="@style/Seccion.Icono"
+                android:background="@drawable/bg_circulo_explicito"
+                android:src="@drawable/ic_brujula" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Texto.Subtitulo"
+                    android:accessibilityHeading="true"
+                    android:text="@string/seccion_explicitos" />
+
+                <TextView
+                    style="@style/Texto.Secundario"
+                    android:text="@string/seccion_explicitos_desc" />
+            </LinearLayout>
+        </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNombre"
+                        style="@style/Campo"
+                        android:hint="@string/hint_nombre"
+                        app:helperText="@string/ayuda_nombre"
+                        app:startIconDrawable="@drawable/ic_persona">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="name"
+                            android:imeOptions="actionGo"
+                            android:inputType="textPersonName|textCapWords"
+                            android:maxLength="30" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSegundaVentana"
+                        style="@style/Boton.Explicito"
+                        android:text="@string/btn_segunda"
+                        app:icon="@drawable/ic_cohete" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margen"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnAyuda"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginEnd="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/Tile.Icono"
+                        android:background="@drawable/bg_icono_ayuda"
+                        android:src="@drawable/ic_ayuda" />
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_ayuda" />
+
+                    <TextView
+                        style="@style/Tile.Descripcion"
+                        android:text="@string/desc_ayuda" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_ayuda" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnConfig"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginStart="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/Tile.Icono"
+                        android:background="@drawable/bg_icono_config"
+                        android:src="@drawable/ic_ajustes" />
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_config" />
+
+                    <TextView
+                        style="@style/Tile.Descripcion"
+                        android:text="@string/desc_config" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_config" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+            <!-- ========== FUNCIONES ========== -->
+        <LinearLayout style="@style/Seccion">
+
+            <ImageView
+                style="@style/Seccion.Icono"
+                android:background="@drawable/bg_circulo_funcion"
+                android:src="@drawable/ic_rayo" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Texto.Subtitulo"
+                    android:accessibilityHeading="true"
+                    android:text="@string/seccion_funciones" />
+
+                <TextView
+                    style="@style/Texto.Secundario"
+                    android:text="@string/seccion_funciones_desc" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnLinterna"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginEnd="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:orientation="vertical">
+
+                    <!-- Halo de luz detrás del ícono (se anima al encender) -->
+                    <FrameLayout
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:clipChildren="false"
+                        android:layout_marginStart="-8dp"
+                        android:layout_marginTop="-8dp"
+                        android:layout_marginBottom="-8dp">
+
+                        <View
+                            android:id="@+id/vBrillo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:alpha="0"
+                            android:background="@drawable/bg_brillo" />
+
+                        <ImageView
+                            android:id="@+id/ivLinterna"
+                            style="@style/Tile.Icono"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_icono_apagado"
+                            android:src="@drawable/ic_linterna_off"
+                            app:tint="@color/texto_secundario" />
+                    </FrameLayout>
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_linterna" />
+
+                    <TextView
+                        android:id="@+id/tvEstadoLinterna"
+                        style="@style/Tile.Descripcion"
+                        android:accessibilityLiveRegion="polite"
+                        android:text="@string/linterna_estado_off" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_linterna" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnUbicacion"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginStart="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:orientation="vertical">
+
+                    <!-- Ondas tipo "radar" que se animan mientras se busca la ubicación -->
+                    <FrameLayout
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:clipChildren="false"
+                        android:layout_marginStart="-8dp"
+                        android:layout_marginTop="-8dp"
+                        android:layout_marginBottom="-8dp">
+
+                        <View
+                            android:id="@+id/vOnda1"
+                            android:layout_width="@dimen/icono_tile"
+                            android:layout_height="@dimen/icono_tile"
+                            android:layout_gravity="center"
+                            android:alpha="0"
+                            android:background="@drawable/bg_pulso" />
+
+                        <View
+                            android:id="@+id/vOnda2"
+                            android:layout_width="@dimen/icono_tile"
+                            android:layout_height="@dimen/icono_tile"
+                            android:layout_gravity="center"
+                            android:alpha="0"
+                            android:background="@drawable/bg_pulso" />
+
+                        <ImageView
+                            style="@style/Tile.Icono"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_icono_funcion"
+                            android:src="@drawable/ic_ubicacion" />
+                    </FrameLayout>
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_ubicacion" />
+
+                    <TextView
+                        android:id="@+id/tvEstadoUbicacion"
+                        style="@style/Tile.Descripcion"
+                        android:accessibilityLiveRegion="polite"
+                        android:text="@string/ubicacion_estado" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_ubicacion" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+            <!-- Resultado de la ubicación (se anima como un contador) -->
+            <TextView
+                android:id="@+id/tvUbicacion"
+                style="@style/Texto"
+                android:layout_marginTop="@dimen/margen"
+                android:accessibilityLiveRegion="polite"
+                android:background="@drawable/bg_tarjeta_coordenadas"
+                android:drawablePadding="12dp"
+                android:fontFamily="monospace"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:text="@string/ubicacion_vacia"
+                android:textSize="@dimen/texto_chico"
+                app:drawableStartCompat="@drawable/ic_pin"
+                app:drawableTint="@color/rosa" />
+
+            <!-- ========== INTENTS IMPLÍCITOS ========== -->
+        <LinearLayout style="@style/Seccion">
+
+            <ImageView
+                style="@style/Seccion.Icono"
+                android:background="@drawable/bg_circulo_implicito"
+                android:src="@drawable/ic_mundo" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Texto.Subtitulo"
+                    android:accessibilityHeading="true"
+                    android:text="@string/seccion_implicitos" />
+
+                <TextView
+                    style="@style/Texto.Secundario"
+                    android:text="@string/seccion_implicitos_desc" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnMap"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginEnd="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/Tile.Icono"
+                        android:background="@drawable/bg_icono_mapa"
+                        android:src="@drawable/ic_mapa" />
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_mapa" />
+
+                    <TextView
+                        style="@style/Tile.Descripcion"
+                        android:text="@string/desc_mapa" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_mapa" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnWeb"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginStart="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/Tile.Icono"
+                        android:background="@drawable/bg_icono_web"
+                        android:src="@drawable/ic_web" />
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_web" />
+
+                    <TextView
+                        style="@style/Tile.Descripcion"
+                        android:text="@string/desc_web" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_web" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margen"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnCorreo"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginEnd="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/Tile.Icono"
+                        android:background="@drawable/bg_icono_correo"
+                        android:src="@drawable/ic_correo" />
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_correo" />
+
+                    <TextView
+                        style="@style/Tile.Descripcion"
+                        android:text="@string/desc_correo" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_correo" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnWifi"
+                style="@style/Tarjeta.Tile"
+                android:layout_marginStart="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/Tile.Icono"
+                        android:background="@drawable/bg_icono_wifi"
+                        android:src="@drawable/ic_wifi" />
+
+                    <TextView
+                        style="@style/Tile.Titulo"
+                        android:text="@string/btn_wifi" />
+
+                    <TextView
+                        style="@style/Tile.Descripcion"
+                        android:text="@string/desc_wifi" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codigo_wifi" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_marginTop="@dimen/margen">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilTelefono"
+                        style="@style/Campo.Implicito"
+                        android:hint="@string/hint_telefono"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="9"
+                        app:helperText="@string/ayuda_telefono"
+                        app:startIconDrawable="@drawable/ic_marcador">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTelefono"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="phone"
+                            android:imeOptions="actionDone"
+                            android:inputType="phone"
+                            android:maxLength="9" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnLlamar"
+                        style="@style/Boton.Implicito"
+                        android:text="@string/btn_llamar"
+                        app:icon="@drawable/ic_telefono" />
+
+                    <TextView
+                        style="@style/Texto.Codigo"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/codigo_llamar" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/Texto.Secundario"
+                android:layout_marginTop="@dimen/margen_grande"
+                android:gravity="center"
+                android:text="@string/pie" />
+        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

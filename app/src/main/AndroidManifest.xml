@@ -2,20 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--Permisos-->
-    <uses-permission
-        android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- Permisos peligrosos: además de declararlos aquí, se piden en tiempo de ejecución -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!--Hardware-->
-
+    <!-- Hardware opcional: la app se puede instalar aunque el teléfono no tenga flash o cámara -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
     <uses-feature
         android:name="android.hardware.camera.flash"
-        android:required="false"/>
-
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
 
     <application
+        android:name=".AppProximaPrueba"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -24,14 +28,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppProximaPrueba">
-        <activity android:name=".Ayuda" android:exported="false" />
-        <activity android:name=".Config" android:exported="false" />
+
+        <!-- Pantallas internas: exported="false" porque solo se abren con intents explícitos de esta app -->
+        <activity
+            android:name=".Ayuda"
+            android:exported="false"
+            android:parentActivityName=".Panel" />
+        <activity
+            android:name=".Config"
+            android:exported="false"
+            android:parentActivityName=".Panel" />
         <activity
             android:name=".Segunda_Vista"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Panel" />
+
+        <!-- Pantalla de inicio: el intent-filter MAIN + LAUNCHER la muestra en el menú de apps -->
         <activity
             android:name=".Panel"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

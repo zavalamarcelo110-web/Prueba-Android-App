@@ -1,6 +1,98 @@
 <resources>
-    <style name="Theme.AppProximaPrueba" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/primario</item>
-        <item name="colorSecondary">@color/implicito</item>
+
+    <!-- ===== Tema base: Material 3 con soporte de modo claro / oscuro (DayNight) ===== -->
+    <style name="Base.Theme.AppProximaPrueba" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Roles de color de Material 3 -->
+        <item name="colorPrimary">@color/violeta</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/superficie_variante</item>
+        <item name="colorOnPrimaryContainer">@color/texto</item>
+        <item name="colorSecondary">@color/cian</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/superficie_variante</item>
+        <item name="colorOnSecondaryContainer">@color/texto</item>
+        <item name="colorTertiary">@color/rosa</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="android:colorBackground">@color/fondo</item>
+        <item name="colorOnBackground">@color/texto</item>
+        <item name="colorSurface">@color/superficie</item>
+        <item name="colorOnSurface">@color/texto</item>
+        <item name="colorSurfaceVariant">@color/superficie_variante</item>
+        <item name="colorOnSurfaceVariant">@color/texto_secundario</item>
+        <item name="colorSurfaceContainer">@color/superficie</item>
+        <item name="colorSurfaceContainerHigh">@color/superficie</item>
+        <item name="colorSurfaceContainerHighest">@color/superficie_variante</item>
+        <item name="colorOutline">@color/borde</item>
+        <item name="colorOutlineVariant">@color/borde</item>
+
+        <item name="android:windowBackground">@color/fondo</item>
+
+        <!-- Tipografía: Poppins en toda la app -->
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.App.HeadlineMedium</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.App.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLarge</item>
+
+        <!-- Transiciones entre Activities -->
+        <item name="android:windowAnimationStyle">@style/Animacion.Ventana</item>
+    </style>
+
+    <style name="Theme.AppProximaPrueba" parent="Base.Theme.AppProximaPrueba">
+        <!-- Splash Screen nativo de Android 12+ (API 31) con ícono animado -->
+        <item name="android:windowSplashScreenBackground">@color/medianoche</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/avd_splash</item>
+        <item name="android:windowSplashScreenAnimationDuration">900</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/violeta</item>
+    </style>
+
+    <!-- Animaciones al abrir y cerrar pantallas -->
+    <style name="Animacion.Ventana" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/entrar_derecha</item>
+        <item name="android:activityOpenExitAnimation">@anim/salir_izquierda</item>
+        <item name="android:activityCloseEnterAnimation">@anim/entrar_izquierda</item>
+        <item name="android:activityCloseExitAnimation">@anim/salir_derecha</item>
+    </style>
+
+    <!-- ===== Escala tipográfica ===== -->
+    <style name="TextAppearance.App.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 </resources>

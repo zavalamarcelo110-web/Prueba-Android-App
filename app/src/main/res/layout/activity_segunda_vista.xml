@@ -1,8 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Pantalla">
+<!--
+    SEGUNDA VENTANA (destino del intent explícito)
+    Capas: fondo degradado → aurora animada → contenido → confeti (encima de todo).
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_segunda_vista"
+    tools:context=".Segunda_Vista">
 
-    <TextView style="@style/Titulo" android:text="@string/titulo_segunda" />
-    <TextView android:id="@+id/tvSaludo" style="@style/Texto" android:textAlignment="center" />
-    <Button android:id="@+id/btnVolver" style="@style/Boton" android:text="@string/btn_volver" />
+    <com.devstbryan.appproximaprueba.widget.AuroraView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:intensidad="0.45" />
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/contenidoSegunda"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_pantalla">
+
+        <!-- Barra superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnAtras"
+                style="@style/BotonVolver" />
+
+            <TextView
+                style="@style/Texto.Subtitulo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margen"
+                android:accessibilityHeading="true"
+                android:text="@string/titulo_segunda"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- Estado 1: cargando (mientras corre el Thread) -->
+            <LinearLayout
+                android:id="@+id/grupoCarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    app:indicatorColor="@array/colores_carga"
+                    app:indicatorSize="72dp"
+                    app:trackCornerRadius="4dp"
+                    app:trackThickness="6dp" />
+
+                <TextView
+                    style="@style/Texto.Subtitulo"
+                    android:layout_marginTop="@dimen/margen_grande"
+                    android:gravity="center"
+                    android:text="@string/cargando"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    style="@style/Texto.Blanco"
+                    android:gravity="center"
+                    android:text="@string/cargando_detalle"
+                    android:textSize="@dimen/texto_chico" />
+            </LinearLayout>
+
+            <!-- Estado 2: saludo (se muestra cuando termina el Thread) -->
+            <LinearLayout
+                android:id="@+id/grupoSaludo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@+id/tvAvatar"
+                    android:layout_width="@dimen/avatar"
+                    android:layout_height="@dimen/avatar"
+                    android:background="@drawable/bg_avatar"
+                    android:contentDescription="@string/desc_avatar"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="52sp"
+                    tools:text="B" />
+
+                <TextView
+                    android:id="@+id/tvSaludo"
+                    style="@style/Texto.Titulo.Blanco"
+                    android:layout_marginTop="@dimen/margen_grande"
+                    android:accessibilityLiveRegion="polite"
+                    android:gravity="center"
+                    tools:text="¡Hola, Bryan! 👋" />
+
+                <TextView
+                    android:id="@+id/tvDetalle"
+                    style="@style/Texto.Blanco"
+                    android:layout_marginTop="@dimen/margen_chico"
+                    android:gravity="center"
+                    android:text="@string/saludo_detalle" />
+
+                <TextView
+                    android:id="@+id/tvCodigo"
+                    style="@style/Texto.Codigo"
+                    android:layout_marginTop="@dimen/margen"
+                    tools:text="getStringExtra(&quot;nombre&quot;) → &quot;Bryan&quot;" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnVolver"
+            style="@style/Boton.Vidrio"
+            android:text="@string/btn_volver"
+            app:icon="@drawable/ic_volver" />
+    </LinearLayout>
+
+    <!-- Confeti: vista personalizada que dibuja partículas con física simple -->
+    <com.devstbryan.appproximaprueba.widget.ConfettiView
+        android:id="@+id/confeti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no" />
+</FrameLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Panel con borde punteado para mostrar las coordenadas -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/superficie_variante" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/violeta_claro"
+        android:dashGap="4dp"
+        android:dashWidth="6dp" />
+    <corners android:radius="@dimen/radio_chico" />
+</shape>

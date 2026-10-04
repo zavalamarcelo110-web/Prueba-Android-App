@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ilustración del encabezado: un teléfono que "envía" intents a otras apps
+     (mapa, correo y web) representadas como burbujas flotantes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Halo de fondo -->
+    <path
+        android:fillColor="#1AFFFFFF"
+        android:pathData="M100,100m-90,0a90,90 0,1 1,180 0a90,90 0,1 1,-180 0" />
+    <path
+        android:fillColor="#1AFFFFFF"
+        android:pathData="M100,100m-64,0a64,64 0,1 1,128 0a64,64 0,1 1,-128 0" />
+
+    <!-- Líneas de conexión punteadas (los "intents" viajando) -->
+    <path
+        android:pathData="M78,84 C60,70 52,60 44,52"
+        android:strokeWidth="2.5"
+        android:strokeColor="#B3FFFFFF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M122,96 C140,96 150,104 160,112"
+        android:strokeWidth="2.5"
+        android:strokeColor="#B3FFFFFF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M112,58 C120,44 130,36 142,30"
+        android:strokeWidth="2.5"
+        android:strokeColor="#B3FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Sombra del teléfono -->
+    <path
+        android:fillColor="#33000000"
+        android:pathData="M86,44h36a12,12 0,0 1,12 12v96a12,12 0,0 1,-12 12h-36a12,12 0,0 1,-12,-12v-96a12,12 0,0 1,12,-12z" />
+    <!-- Cuerpo del teléfono -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M82,38h36a12,12 0,0 1,12 12v96a12,12 0,0 1,-12 12h-36a12,12 0,0 1,-12,-12v-96a12,12 0,0 1,12,-12z" />
+    <!-- Pantalla con degradado -->
+    <path android:pathData="M84,48h32a6,6 0,0 1,6 6v86a6,6 0,0 1,-6 6h-32a6,6 0,0 1,-6,-6v-86a6,6 0,0 1,6,-6z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="122"
+                android:endY="146"
+                android:startX="78"
+                android:startY="48"
+                android:type="linear">
+                <item
+                    android:color="@color/violeta"
+                    android:offset="0" />
+                <item
+                    android:color="@color/rosa"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Elementos de interfaz en la pantalla -->
+    <path
+        android:fillColor="#E6FFFFFF"
+        android:pathData="M100,72m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+    <path
+        android:fillColor="@color/violeta"
+        android:pathData="M96.5,66.5l8,5.5l-8,5.5l1.4,-5.5z" />
+    <path
+        android:fillColor="#B3FFFFFF"
+        android:pathData="M86,92h28a3,3 0,0 1,0 6h-28a3,3 0,0 1,0 -6z" />
+    <path
+        android:fillColor="#80FFFFFF"
+        android:pathData="M86,104h20a3,3 0,0 1,0 6h-20a3,3 0,0 1,0 -6z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M86,124h28a6,6 0,0 1,6 6v0a6,6 0,0 1,-6 6h-28a6,6 0,0 1,-6 -6v0a6,6 0,0 1,6 -6z" />
+    <!-- Cámara frontal -->
+    <path
+        android:fillColor="#FFD8D4F5"
+        android:pathData="M100,43m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+
+    <!-- Burbuja: mapa (cian) -->
+    <path
+        android:fillColor="@color/cian"
+        android:pathData="M38,46m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0" />
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M38,34c-5,0 -9,4 -9,9c0,7 9,15 9,15s9,-8 9,-15c0,-5 -4,-9 -9,-9zM38,46.5c-2,0 -3.5,-1.5 -3.5,-3.5s1.5,-3.5 3.5,-3.5s3.5,1.5 3.5,3.5s-1.5,3.5 -3.5,3.5z" />
+
+    <!-- Burbuja: correo (amarillo) -->
+    <path
+        android:fillColor="@color/amarillo"
+        android:pathData="M166,118m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0" />
+    <path
+        android:fillColor="@color/medianoche"
+        android:pathData="M156,110h20a2,2 0,0 1,2 2v12a2,2 0,0 1,-2 2h-20a2,2 0,0 1,-2,-2v-12a2,2 0,0 1,2,-2z" />
+    <path
+        android:pathData="M155,112l11,8l11,-8"
+        android:strokeWidth="2"
+        android:strokeColor="@color/amarillo"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Burbuja: web (esmeralda) -->
+    <path
+        android:fillColor="@color/esmeralda"
+        android:pathData="M150,26m-15,0a15,15 0,1 1,30 0a15,15 0,1 1,-30 0" />
+    <path
+        android:pathData="M150,26m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0M142,26h16M150,18c-4,5 -4,11 0,16M150,18c4,5 4,11 0,16"
+        android:strokeWidth="1.8"
+        android:strokeColor="@android:color/white" />
+
+    <!-- Destellos -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M30,128l2.5,6l6,2.5l-6,2.5l-2.5,6l-2.5,-6l-6,-2.5l6,-2.5z" />
+    <path
+        android:fillColor="@color/amarillo"
+        android:pathData="M172,62l1.8,4.2l4.2,1.8l-4.2,1.8l-1.8,4.2l-1.8,-4.2l-4.2,-1.8l4.2,-1.8z" />
+    <path
+        android:fillColor="#B3FFFFFF"
+        android:pathData="M58,172m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
+</vector>
