@@ -17,6 +17,8 @@
   <img alt="Gradle" src="https://img.shields.io/badge/AGP-9.0.1-3B82F6?style=for-the-badge&logo=gradle&logoColor=white">
 </p>
 
+> 📘 **Guía de estudio completa:** [`docs/GUIA_DE_ESTUDIO.md`](docs/GUIA_DE_ESTUDIO.md) explica toda la materia, archivo por archivo (Java, vistas, recursos, Gradle, Manifest), con flujos, preguntas de prueba y ejercicios.
+>
 > 🎬 **Vista previa en video:** [`docs/video/vista-previa.mp4`](docs/video/vista-previa.mp4) muestra un recorrido de 1:44 por todas las pantallas, colores, íconos y animaciones. Es una maqueta de referencia, no una grabación del teléfono.
 
 ---
