@@ -728,11 +728,15 @@ Los íconos de la barra de estado empiezan en blanco (sobre el encabezado oscuro
 
 ## 📸 Capturas
 
-> Agrega tus capturas en la carpeta `capturas/` con estos nombres para que aparezcan aquí.
+> Capturas reales tomadas en el emulador **Pixel 3a (Android 17 / API 37)**.
 
-| Panel | Segunda Ventana | Ayuda | Configuración (oscuro) |
-|---|---|---|---|
-| ![Panel](capturas/panel.png) | ![Segunda Ventana](capturas/segunda.png) | ![Ayuda](capturas/ayuda.png) | ![Configuración](capturas/config.png) |
+| Panel | Validación 🛡️ | Segunda Ventana |
+|---|---|---|
+| ![Panel](capturas/panel.png) | ![Validación](capturas/panel_validacion.png) | ![Segunda Ventana](capturas/segunda.png) |
+
+| Ayuda | Configuración |
+|---|---|
+| ![Ayuda](capturas/ayuda.png) | ![Configuración](capturas/config.png) |
 
 ---
 
